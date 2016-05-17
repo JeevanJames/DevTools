@@ -12,12 +12,20 @@
             controller: 'homeController',
             controllerAs: 'home'
         });
+
+        $stateProvider.state('tools', {
+            url: '/tools',
+            templateUrl: 'app/tools/tools.html',
+            controller: 'toolsController',
+            controllerAs: 'tools',
+            abstract: true
+        });
     });
 })(window);
 
 function registerRoute(name, title, tags, description) {
     window.app.config(['$stateProvider', function($stateProvider) {
-        $stateProvider.state(name, createRoute(name, title, tags, description));
+        $stateProvider.state('tools.' + name, createRoute(name, title, tags, description));
     }]);
 }
 
