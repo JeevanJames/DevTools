@@ -1,5 +1,4 @@
 <!-- Tags -->
-{{ home.states | json}}
 <div class="row">
     <div class="col-lg-12">
         <div class="btn-toolbar" role="toolbar" aria-label="Tags">
@@ -22,7 +21,7 @@
 <div class="row">
     <div class="col-md-4 portfolio-item" ng-repeat="(name, tool) in home.tools">
         <a ui-sref="{{name}}">
-            <img class="img-responsive" src="/DevTools/images/code.jpg" alt="{{tool.title}}">
+            <img class="img-responsive" src="images/code.jpg" alt="{{tool.title}}">
         </a>
         <h3>
             <a ui-sref="{{name}}">{{tool.title}}</a>
