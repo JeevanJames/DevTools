@@ -1,5 +1,7 @@
-(function() {
-    angular.module('app').config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+(function(global) {
+    'use strict';
+
+    global.app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         $locationProvider.html5Mode(false);
 
         $urlRouterProvider.otherwise('/');
@@ -11,7 +13,13 @@
             controllerAs: 'home'
         });
     });
-})();
+})(window);
+
+function registerRoute(name, title, tags, description) {
+    window.app.config(['$stateProvider', function($stateProvider) {
+        $stateProvider.state(name, createRoute(name, title, tags, description));
+    }]);
+}
 
 function createRoute(name, title, tags, description) {
     return {

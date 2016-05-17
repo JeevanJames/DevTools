@@ -1,10 +1,10 @@
-(function() {
-    angular.module('app').controller('homeController', function($state) {
+(function(global) {
+    'use strict';
+
+    global.app.controller('homeController', function($state) {
         var home = this;
 
         var states = $state.get();
-
-        home.states = states;
 
         home.tags = getTags();
         home.tools = getTools();
@@ -42,4 +42,4 @@
             return tools;
         };
     });
-})();
+})(window);
