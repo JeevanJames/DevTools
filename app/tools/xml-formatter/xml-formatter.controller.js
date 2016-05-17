@@ -3,7 +3,6 @@
 
     angular.module('app').controller(_.camelCase(name) + 'Controller', function() {
         var xmlFormatter = this;
-        xmlFormatter.test = 'Test';
     });
 
     angular.module('app').config(function($stateProvider) {
