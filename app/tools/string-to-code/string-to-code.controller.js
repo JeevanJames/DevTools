@@ -7,6 +7,8 @@
         stringToCode.text = storageService.getLocal(name, 'text') || '';
         stringToCode.result = '';
 
+        stringToCode.indent = 4;
+
         stringToCode.options = stringToCodeService.options;
         stringToCode.selectedOption = storageService.getLocal(name, 'generator');
 
@@ -15,7 +17,7 @@
             storageService.setLocal(name, 'generator', stringToCode.selectedOption);
 
             var generator = stringToCodeService[stringToCode.selectedOption];
-            stringToCode.result = generator(stringToCode.text);
+            stringToCode.result = generator(stringToCode.text, stringToCode.indent);
         };
     }]);
 
