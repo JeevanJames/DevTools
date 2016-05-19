@@ -1,0 +1,17 @@
+<div>
+    <textarea ng-model="stringToCode.text" placeholder="multi-line text"
+        style="font-family: Consolas, 'Courier New', Lucida" rows="15" cols="100" />
+</div>
+<div>
+    <select ng-model="stringToCode.selectedOption">
+        <option ng-repeat="(key, value) in stringToCode.options"
+            value="{{key}}">{{value.description}}</option>
+    </select>
+</div>
+<div>
+    <button type="button" ng-click="stringToCode.generate()">Generate</button>
+</div>
+<div>
+    <textarea ng-model="stringToCode.result" readonly
+        style="font-family: Consolas, 'Courier New', Lucida" rows="15" cols="100" />
+</div>
