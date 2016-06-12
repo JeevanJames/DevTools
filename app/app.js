@@ -1,7 +1,7 @@
 (function (global) {
     'use strict';
 
-    global.app = angular.module('app', ['ui.router']);
+    global.app = angular.module('app', ['ngMessages', 'ui.router']);
 
     global.app.controller('mainController', function($rootScope) {
         var main = this;

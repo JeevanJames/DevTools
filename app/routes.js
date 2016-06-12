@@ -23,22 +23,19 @@
     });
 })(window);
 
-function registerRoute(name, title, tags, description) {
+function registerRoute(name, title, tags, description, resolve) {
     window.app.config(['$stateProvider', function($stateProvider) {
-        $stateProvider.state('tools.' + name, createRoute(name, title, tags, description));
+        $stateProvider.state('tools.' + name, {
+            url: '/' + name,
+            templateUrl: 'app/tools/' + name + '/' + name + '.html',
+            controller: _.camelCase(name) + 'Controller',
+            controllerAs: _.camelCase(name),
+            resolve: resolve,
+            tool: {
+                tags: tags,
+                title: title,
+                description: description
+            }
+        });
     }]);
-}
-
-function createRoute(name, title, tags, description) {
-    return {
-        url: '/' + name,
-        templateUrl: 'app/tools/' + name + '/' + name + '.html',
-        controller: _.camelCase(name) + 'Controller',
-        controllerAs: _.camelCase(name),
-        tool: {
-            tags: tags,
-            title: title,
-            description: description
-        }
-    };
 }
